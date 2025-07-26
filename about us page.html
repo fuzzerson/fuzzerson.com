@@ -1,135 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="stylesheet3.css"> 
+<html>
+ <style>
+ h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+ }
+    
+ p {
+    font-family: Arial, Helvetica, sans-serif; 
+ }
+    
+ .centre {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* added to center inline-block images */
+ }
+ 
+ /* Make images inline-block so they can be centered by text-align */
+ .bottom-image {
+    display: inline-block;
+    margin: 10px; /* spacing between images */
+ }
+    
+ html {
+    background: linear-gradient(180deg, rgb(98, 60, 34) 240px, rgb(241, 225, 221) 240px);
+    min-height: 100vh;
+ }
+    
+ #dealwithit {
+    font-size: 20px;
+    text-align: center;
+    padding-top: 100px;
+ }
+    
+ #pages {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+ }
+    
+ body {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+ }
+    
+ a:link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+ }
+    
+ a:visited {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+ }
+    
+ a:hover {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    text-decoration: underline;
+ }
+ </style>
 <head>
-<meta charset="UTF-8" />
-<title>About Us - Fuzzerson</title>
-<style>
-    /* Reset and base */
-    html, body {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        background: linear-gradient(
-            180deg, 
-            rgb(98, 60, 34) 240px, 
-            rgb(241, 225, 221) 241px, 
-            rgb(241, 225, 221) 100%
-        );
-        background-size: 200% 200%;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        overflow-x: hidden;
-    }
-
-    /* Navigation */
-    #pages {
-        color: white;
-        padding-left: 10px;
-        padding-right: 10px;
-        text-align: right;
-        background: transparent;
-    }
-
-    #pages span {
-        margin-left: 10px;
-    }
-
-    #pages a {
-        color: white;
-        text-decoration: none;
-    }
-
-    #pages a:hover {
-        text-decoration: underline;
-    }
-
-    /* Heading */
-    h1 {
-        text-align: center;
-        color: white;
-        margin-top: 10px;
-    }
-
-    /* Paragraph */
-    #dealwithit {
-        font-size: 20px;
-        text-align: center;
-        padding-top: 100px;
-        color: black; /* visible on light bg */
-    }
-
-    /* Center images */
-    .centre {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    /* Changed id=bottom to class 'bottom-img' */
-    .bottom-img {
-        padding: 50px;
-        width: 300px;
-        height: 300px;
-        display: inline-block;
-    }
-
-    /* Footer - sticky to bottom naturally */
-    footer {
-        margin-top: auto;
-        font-size: 70%;
-        color: gray;
-        padding: 10px 15px;
-        text-align: center;
-        background: transparent;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a:link, a:visited {
-        color: white;
-        text-decoration: none;
-    }
-
-    a:hover {
-        color: white;
-        text-decoration: underline;
-        background-color: transparent;
-    }
-</style>
-</head>
-<body>
-
-    <!-- Navigation -->
-    <p id="pages">
-        <span><a href="index.html">Home</a></span>
-        <span><a href="fuzzy page.html">Fuzzy</a></span>
-        <span><a href="about us page.html"><b>About Us</b></a></span>
-        <span><a href="https://fuzzerson.github.io/fuzzersonmath2/">Fuzzerson Games</a></span>
-        <span><a href="halloffame.html">Hall of fame‎⠀</a></span>
+    <p style="text-align: right;"> 
+        <span id="pages"> <a href="index.html">Home</a></span>
+        <span id="pages"> <a href="fuzzy page.html">Fuzzy</a></span>
+        <span id="pages"> <a href="about us page.html"><b>About Us</b></a></span>
+        <span id="pages"><a href="https://fuzzerson.github.io/fuzzersonmath2/"> Fuzzerson Games</a></span>
+        <span id="pages"><a href="halloffame.html"> Hall of fame‎⠀</a></span>
     </p>
 
-    <h1>About Us</h1>
+    <h1> About Us </h1>
 
-    <img class="centre" src="Fuzzy.jpg" width="100" height="100" alt="Fuzzy">
-
-    <p id="dealwithit">this website was made by a fuzzerson who had a silly idea!</p>
-
+    <img class="centre" src="Fuzzy.jpg" width="100" height="100"> 
+</head>
+<body>
+    <p id="dealwithit"> this website was made by a fuzzerson who had a silly idea!</p>
     <div class="centre">
-        <img class="bottom-img" src="Fuzzy.jpg" alt="fuzzy1">
-        <img class="bottom-img" src="Fuzzy.jpg" alt="fuzzy2">
-        <img class="bottom-img" src="Fuzzy.jpg" alt="fuzzy3">
+        <img class="bottom-image" src="Fuzzy.jpg" alt="fuzzy" width="300" height="300">
+        <img class="bottom-image" src="Fuzzy.jpg" alt="fuzzy" width="300" height="300">
+        <img class="bottom-image" src="Fuzzy.jpg" alt="fuzzy" width="300" height="300">
     </div>
-
     <footer>
-        Got questions? Reach out at:<br> contact@fuzzerson.com
+        <p style="font-size: 70%; color: gray; text-align: center; padding: 20px 0;">
+            Got questions? Reach out at:<br>fuzzerson@yahoo.com
+        </p>
     </footer>
-
 </body>
 </html>
