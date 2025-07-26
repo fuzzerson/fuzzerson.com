@@ -1,93 +1,126 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>You're a Fuzzerson</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
 
-<html>
- <style>
- h1{
-text-align: center;
-font-family: Arial, Helvetica, sans-serif;
-color: white;
-}
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background:
+      linear-gradient(
+        to bottom,
+        rgb(98, 60, 34) 0,
+        rgb(98, 60, 34) 240px,
+        rgb(241, 225, 221) 240px,
+        rgb(241, 225, 221) 100%
+      );
+  }
 
-p{
-    font-family: Arial, Helvetica, sans-serif; 
-}
+  #pages {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: right;
+    padding: 10px 15px;
+    background: transparent;
+  }
 
-.centre {
+  #pages span {
+    margin-left: 10px;
+  }
 
-    display:block;
+  #pages a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  #pages a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    flex: 1;
+    padding: 15px;
+  }
+
+  h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    margin-top: 0;
+  }
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .centre {
+    display: block;
     margin-left: auto;
     margin-right: auto;
-}
+  }
 
-
-
-html{
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, rgb(98, 60, 34) 240px, rgb(241, 225, 221, 1) 60px) fixed;
-
-}
-
-#dealwithit{
+  #dealwithit {
     font-size: 20px;
     text-align: center;
     padding-top: 100px;
-}
+  }
 
-#pages{
+  footer {
+    background: rgb(241, 225, 221);
+    border-top: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70%;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    box-sizing: border-box;
+  }
 
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
-
-}
-
-body{
-
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-a:link {
-    color: rgb(255, 255, 255);
+  footer a {
+    color: orange;
     text-decoration: none;
   }
 
-a:visited {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-  }
-
-a:hover {
-    color: rgb(255, 255, 255);
-    background-color: transparent;
+  footer a:hover {
     text-decoration: underline;
   }
- </style>
-<head>
-    <p style="text-align: right;"> 
-        <span id="pages"> <a href="index.html"><b>Home</b></a></span>
-         <span id="pages"> <a href="fuzzy page.html">Fuzzy</a></span>
-         <span id="pages"> <a href="about us page.html">About Us</a></span>
-		 <span id="pages"><a href="https://fuzzerson.github.io/fuzzersonmath2/"> Fuzzerson Games</a></span>
-		 <span id="pages"><a href="halloffame.html"> Hall of fame‎</a></span>
-    </p>
-
-    <h1> You're a fuzzerson </h1>
-
-    <img class="centre" src="Fuzzy.jpg" width="100" height="100"> 
+</style>
 </head>
 <body>
-    <p id="dealwithit"> Deal. With. It.</p>
-	<footer><p style="font-size: 70%; color: gray; position:absolute; bottom:0px">Got questions? Reach out at:
-	<br>fuzzerson@yahoo.com</br></p></footer>
-    <footer style="height: 100px;">
-     <p style="font-size: 70%; color: gray; position: absolute; bottom: 0; right: 0; padding-right: 5px">
-     Want the original website?
-     <br><a href="https://sites.google.com/view/fuzzerson/home" style="color: orange;">click here⠀</a>
-    </p>
-    </footer>
+  <div id="pages">
+    <span><a href="index.html"><b>Home</b></a></span>
+    <span><a href="fuzzy page.html">Fuzzy</a></span>
+    <span><a href="about us page.html">About Us</a></span>
+    <span><a href="https://fuzzerson.github.io/fuzzersonmath2/">Fuzzerson Games</a></span>
+    <span><a href="halloffame.html">Hall of Fame‎</a></span>
+  </div>
 
+  <main>
+    <h1>You're a Fuzzerson</h1>
+    <img class="centre" src="Fuzzy.jpg" width="100" height="100" alt="Fuzzy Icon" />
 
-</body>	
+    <p id="dealwithit">Deal. With. It.</p>
+  </main>
+
+  <footer>
+    <div>
+      Got questions? Reach out at:<br />
+      fuzzerson@yahoo.com
+    </div>
+    <div style="text-align: right;">
+      Want the original website?<br />
+      <a href="https://sites.google.com/view/fuzzerson/home">click here⠀</a>
+    </div>
+  </footer>
+</body>
 </html>
