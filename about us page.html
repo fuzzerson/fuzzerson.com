@@ -11,6 +11,12 @@
  p {
     font-family: Arial, Helvetica, sans-serif; 
  }
+ 
+
+ h3 {
+    font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+ }
     
  .centre {
     display: block;
@@ -66,6 +72,7 @@
     text-decoration: underline;
  }
  </style>
+ 
 <head>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <title>About Us</title>
@@ -88,14 +95,69 @@
         <img class="bottom-image" src="Fuzzy.jpg" alt="fuzzy" width="300" height="300">
         <img class="bottom-image" src="Fuzzy.jpg" alt="fuzzy" width="300" height="300">
     </div>
+	<h3>Reviews</h3>
 	<p style="text-align: center; color: gray"><i>10/10 Fuzzerson is the best cat ever, and is so entertaining. Amazing website with cool games!<br>
 	-Adam</i></p>
 	<p style="text-align: center; color: gray"><i>10/10 Fuzzerson.com — a strange, self-aware internet corner with cats, games, and eccentric community rituals<br>
 	-ChatGPT</i></p>
+	
+	<br>
+	
+	<h3>Time since...</h3>
+	<p style="text-align: center;"><b>Fuzzerson.com was first on the web</b></p>
+	
+	<div id="exact-time" class="centre" style="font-family: sans-serif; font-size: 0.9rem;">
+        Loading...
+    </div>
+
+	<p style="text-align: center;"><b>Fuzzy was born</b></p>
+	
+	<div id="age" class="centre" style="font-family: sans-serif; font-size: 0.9rem;">
+        Loading...
+    </div>
+	
     <footer>
         <p style="font-size: 70%; color: gray; text-align: center; padding: 20px 0;">
             Got questions? Reach out at:<br>contact@fuzzerson.com
         </p>
     </footer>
 </body>
+
+<script>
+    const startSite = new Date(2023, 5, 30, 14, 46, 0);  
+    const startFuzzy = new Date(2020, 1, 16, 0, 0, 6);  
+
+    function calculateDifference(now, start) {
+        let y = now.getFullYear() - start.getFullYear();
+        let mo = now.getMonth() - start.getMonth();
+        let d = now.getDate() - start.getDate();
+        let h = now.getHours() - start.getHours();
+        let mi = now.getMinutes() - start.getMinutes();
+        let s = now.getSeconds() - start.getSeconds();
+
+        if (s < 0) { s += 60; mi--; }
+        if (mi < 0) { mi += 60; h--; }
+        if (h < 0) { h += 24; d--; }
+        if (d < 0) { d += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); mo--; }
+        if (mo < 0) { mo += 12; y--; }
+
+        return `${y} Years, ${mo} Months, ${d} Days, ${h}h ${mi}m ${s}s`;
+    }
+
+    function updateAllTimers() {
+        const now = new Date();
+        const siteEl = document.getElementById('exact-time');
+        const ageEl = document.getElementById('age');
+
+        if (siteEl) siteEl.innerText = calculateDifference(now, startSite);
+        if (ageEl) ageEl.innerText = calculateDifference(now, startFuzzy);
+    }
+
+    // This is the important part: Wait for the page to load!
+    window.onload = function() {
+        updateAllTimers();
+        setInterval(updateAllTimers, 1000);
+    };
+</script>
+
 </html>
