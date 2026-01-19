@@ -8,6 +8,8 @@
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
             color: white;
+			margin-top: 15px; 
+			margin-bottom: 20px;
         }
         
         p {
@@ -37,12 +39,18 @@
             padding: 0;
         }
         
-         #pages {
-    padding-left: 10px;
-    padding-right: 10px;
-	padding-top: 10px;
+
+  #pages {
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
- }
+    text-align: right;
+    padding: 20px 20px 0 20px;
+  }
+
+  #pages span { margin-left: 10px; }
+  #pages a { color: white; text-decoration: none; }
+  #pages a:hover { text-decoration: underline; }
+
         
         a:link, a:visited {
             color: rgb(255, 255, 255);
@@ -83,13 +91,14 @@
     </style>
  </head>
  <body>
-    <p style="text-align: right;"> 
-        <span id="pages"> <a href="index.html">Home</a></span>
-        <span id="pages"> <a href="fuzzy page.html"><b>Fuzzy</b></a></span>
-        <span id="pages"> <a href="about us page.html">About Us</a></span>
-        <span id="pages"><a href="https://fuzzerson.github.io/fuzzersonmath2/"> Fuzzerson Games</a></span>
-        <span id="pages"><a href="halloffame.html"> Hall of fame‎⠀</a></span>
-    </p>
+ 
+  <div id="pages">
+    <span><a href="index.html">Home</a></span>
+    <span><a href="fuzzy page.html"><b>Fuzzy</b></a></span>
+    <span><a href="about us page.html">About Us</a></span>
+    <span><a href="https://fuzzerson.github.io/fuzzersonmath2/">Fuzzerson Games</a></span>
+    <span><a href="halloffame.html">Hall of Fame‎</a></span>
+  </div>
 
     <h1> Fuzzy the Fuzzerson </h1>
 

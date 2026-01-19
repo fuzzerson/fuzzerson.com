@@ -1,129 +1,138 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="stylesheet3.css"> 
 <html>
- <style>
- h1 {
+<head>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta charset="UTF-8" />
+<title>About Us</title>
+<style>
+  /* Hide scrollbar for all browsers */
+  body::-webkit-scrollbar { display: none; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+    min-height: 100%;
+    /* Fixed background logic */
+    background-color: rgb(241, 225, 221);
+    background-image: linear-gradient(
+        to bottom,
+        rgb(98, 60, 34) 0px,
+        rgb(98, 60, 34) 240px,
+        rgb(241, 225, 221) 240px
+    );
+    background-repeat: no-repeat;
+  }
+
+  h1 {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
- }
-    
- p {
-    font-family: Arial, Helvetica, sans-serif; 
- }
- 
+    /* Adjusted to match the "OG" position */
+    margin-top: 15px; 
+    margin-bottom: 20px;
+  }
 
- h3 {
+  h3 {
     font-family: Arial, Helvetica, sans-serif;
-	text-align: center;
- }
-    
- .centre {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  p {
+    font-family: Arial, Helvetica, sans-serif; 
+  }
+
+  #pages {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: right;
+    padding: 20px 20px 0 20px;
+  }
+
+  #pages span { margin-left: 10px; }
+  #pages a { color: white; text-decoration: none; }
+  #pages a:hover { text-decoration: underline; }
+
+  .centre {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center; /* added to center inline-block images */
- }
- 
- /* Make images inline-block so they can be centered by text-align */
- .bottom-image {
+    text-align: center;
+  }
+
+  .bottom-image {
     display: inline-block;
-    margin: 10px; /* spacing between images */
- }
-    
- html {
-    background: linear-gradient(180deg, rgb(98, 60, 34) 240px, rgb(241, 225, 221) 240px);
-    min-height: 100vh;
- }
-    
- #dealwithit {
+    margin: 10px;
+    border-radius: 10px; /* Optional: makes them look cleaner */
+  }
+
+  #dealwithit {
     font-size: 20px;
     text-align: center;
     padding-top: 100px;
- }
-    
- #pages {
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
- }
-    
- body {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
- }
-    
- a:link {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
- }
-    
- a:visited {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
- }
-    
- a:hover {
-    color: rgb(255, 255, 255);
-    background-color: transparent;
-    text-decoration: underline;
- }
- </style>
- 
-<head>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<title>About Us</title>
-    <p style="text-align: right;"> 
-        <span id="pages"> <a href="index.html">Home</a></span>
-        <span id="pages"> <a href="fuzzy page.html">Fuzzy</a></span>
-        <span id="pages"> <a href="about us page.html"><b>About Us</b></a></span>
-        <span id="pages"><a href="https://fuzzerson.github.io/fuzzersonmath2/"> Fuzzerson Games</a></span>
-        <span id="pages"><a href="halloffame.html"> Hall of fame‎⠀</a></span>
-    </p>
+    margin-bottom: 20px;
+  }
 
-    <h1> About Us </h1>
+  footer {
+    border-top: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70%;
+    color: gray;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 50px;
+  }
+</style>
+</head>
+
+<body>
+  <div id="pages">
+    <span><a href="index.html">Home</a></span>
+    <span><a href="fuzzy page.html">Fuzzy</a></span>
+    <span><a href="about us page.html"><b>About Us</b></a></span>
+    <span><a href="https://fuzzerson.github.io/fuzzersonmath2/">Fuzzerson Games</a></span>
+    <span><a href="halloffame.html">Hall of Fame‎</a></span>
+  </div>
+
+  <main>
+    <h1>About Us</h1>
 
     <img class="centre" src="Fuzzy.jpg" width="100" height="100"> 
-</head>
-<body>
-    <p id="dealwithit"> this website was made by a fuzzerson who had a silly idea!</p>
+
+    <p id="dealwithit">this website was made by a fuzzerson who had a silly idea!</p>
+
     <div class="centre">
         <img class="bottom-image" src="Fuzzy.jpg" alt="fuzzy" width="300" height="300">
         <img class="bottom-image" src="Fuzzy.jpg" alt="fuzzy" width="300" height="300">
         <img class="bottom-image" src="Fuzzy.jpg" alt="fuzzy" width="300" height="300">
     </div>
-	<h3>Reviews</h3>
-	<p style="text-align: center; color: gray"><i>10/10 Fuzzerson is the best cat ever, and is so entertaining. Amazing website with cool games!<br>
-	-Adam</i></p>
-	<p style="text-align: center; color: gray"><i>10/10 Fuzzerson.com — a strange, self-aware internet corner with cats, games, and eccentric community rituals<br>
-	-ChatGPT</i></p>
-	
-	<br>
-	
-	<h3>Time since...</h3>
-	<p style="text-align: center;"><b>Fuzzerson.com was first on the web</b></p>
-	
-	<div id="exact-time" class="centre" style="font-family: sans-serif; font-size: 0.9rem;">
+
+    <h3>Reviews</h3>
+    <p style="text-align: center; color: gray"><i>10/10 Fuzzerson is the best cat ever, and is so entertaining. Amazing website with cool games!<br>
+    -Adam</i></p>
+    <p style="text-align: center; color: gray"><i>10/10 Fuzzerson.com — a strange, self-aware internet corner with cats, games, and eccentric community rituals<br>
+    -ChatGPT</i></p>
+
+    <h3>Time since...</h3>
+    <p style="text-align: center;"><b>Fuzzerson.com was first on the web</b></p>
+    
+    <div id="exact-time" class="centre" style="font-family: sans-serif; font-size: 0.9rem; font-weight: bold;">
         Loading...
     </div>
 
-	<p style="text-align: center;"><b>Fuzzy was born</b></p>
-	
-	<div id="age" class="centre" style="font-family: sans-serif; font-size: 0.9rem;">
+    <p style="text-align: center;"><b>Fuzzy was born</b></p>
+    
+    <div id="age" class="centre" style="font-family: sans-serif; font-size: 0.9rem; font-weight: bold;">
         Loading...
     </div>
-	
-    <footer>
-        <p style="font-size: 70%; color: gray; text-align: center; padding: 20px 0;">
-            Got questions? Reach out at:<br>contact@fuzzerson.com
-        </p>
-    </footer>
-</body>
+  </main>
 
-<script>
+  <footer>
+    Got questions? Reach out at:<br>contact@fuzzerson.com
+  </footer>
+
+  <script>
     const startSite = new Date(2023, 5, 30, 14, 46, 0);  
     const startFuzzy = new Date(2020, 1, 16, 0, 0, 6);  
 
@@ -153,11 +162,10 @@
         if (ageEl) ageEl.innerText = calculateDifference(now, startFuzzy);
     }
 
-    // This is the important part: Wait for the page to load!
     window.onload = function() {
         updateAllTimers();
         setInterval(updateAllTimers, 1000);
     };
-</script>
-
+  </script>
+</body>
 </html>

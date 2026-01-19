@@ -1,173 +1,146 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="stylesheet3.css"> 
-<html>
- <style>
- h1 {
+<html lang="en">
+<head>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<meta charset="UTF-8" />
+<title>Hall of Fame</title>
+<style>
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+    
+    min-height: 100%;
+    background-color: rgb(241, 225, 221);
+    background-image: linear-gradient(
+        to bottom,
+        rgb(98, 60, 34) 0px,
+        rgb(98, 60, 34) 240px,
+        rgb(241, 225, 221) 240px
+    );
+    background-repeat: no-repeat;
+  }
+
+  #pages {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: right;
+    padding: 20px 20px 0 20px;
+  }
+
+  #pages span { margin-left: 10px; }
+  #pages a { color: white; text-decoration: none; }
+  #pages a:hover { text-decoration: underline; }
+
+  h1 {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
- }
-    
- p {
-    font-family: Arial, Helvetica, sans-serif; 
- }
-    
- .centre {
+    /* This moves the title down to its original spot */
+    margin-top: 15px; 
+    margin-bottom: 20px;
+  }
+
+  .centre {
     display: block;
     margin-left: auto;
     margin-right: auto;
- }
-    
- html {
-    min-height: 100vh;
-    background: linear-gradient(
-        180deg,
-        rgb(98, 60, 34) 0px,
-        rgb(98, 60, 34) 240px,
-        rgb(241, 225, 221) 241px,
-        rgb(241, 225, 221) 100%
-    );
-    background-repeat: no-repeat;
- }
+  }
 
- #dealwithit {
+  #dealwithit {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     text-align: center;
     padding-top: 100px;
- }
-    
- #pages {
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
- }
-    
- body {
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
- }
-    
- a:link {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
- }
-    
- a:visited {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
- }
-    
- a:hover {
-    color: rgb(255, 255, 255);
-    background-color: transparent;
-    text-decoration: underline;
- }
+    color: #000;
+  }
 
- #bottom {
-    padding: 50px;
- }
-	
- .bottom {
-    position: fixed;
-    bottom: 0;
- }
- </style>
-<head>
- <link rel="icon" type="image/x-icon" href="favicon.ico">
- <title>Hall of Fame</title>
-    <p style="text-align: right;"> 
-        <span id="pages"> <a href="index.html">Home</a></span>
-        <span id="pages"> <a href="fuzzy page.html">Fuzzy</a></span>
-        <span id="pages"> <a href="about us page.html">About Us</a></span>
-        <span id="pages"><a href="https://fuzzerson.github.io/fuzzersonmath2/"> Fuzzerson Games</a></span>
-        <span id="pages"><a href="halloffame.html"> <b>Hall of fame‎⠀</b></a></span>
-    </p>
+  .names-list {
+    text-align: center;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 2.2;
+    padding-bottom: 40px;
+  }
 
-    <h1> Hall of fame </h1>
-
-    <img class="centre" src="Fuzzy.jpg" width="100" height="100"> 
+  footer {
+    border-top: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70%;
+    color: gray;
+    padding: 20px;
+    text-align: left;
+  }
+</style>
 </head>
 <body>
-    <p id="dealwithit"><b> The Top Fuzzersons</b></p>
-    <div style="text-align: center"><p style="color: gray">
-	Jonnan Fuzzerson
-	<br><br>
-	Kosta Fuzzerson
-	<br><br>
-	Zavier Fizzafuzz
-	<br><br>
-	Eathan Fuzzerson
-	<br><br>
-	Sara Fuzzerson
-	<br><br>
-	Dimtri Fuzzerson
-	<br><br>
-	Fuzzy Fuzzerson
-	<br><br>
-	Gracie Fuzzerson
-	<br><br>
-	Maria Fuzzerson
-	<br><br>
-	Julian Fuzzerson
-	<br><br>
-	Matthew Fuzzerson
-	<br><br>
-	Tristan S Fuzzerson
-	<br><br>
-	Lia Fuzzerson
-	<br><br>
-	CJ Fuzzerson
-	<br><br>
-	Luca Fuzzabin
-	<br><br>
-	Owen
-	<br><br>
-	Faith Fuzzerson
-	<br><br>
-	Kaidyn Fuzzerson
-	<br><br>
-	Nuit Fuzzerson
-	<br><br>
-	Raisin Bran Fuzzerson
-	<br><br>
-	Colon Fuzzerson
-	<br><br>
-	maybe (Semi) Colon Fuzzerson
-	<br><br>
-	Nathan Fuzzerson
-	<br><br>
-	Anthony Fuzzerson
-	<br><br>
-	James Fuzzerson
-	<br><br>
-	Tyler Fuzzerson (ferguson)
-	<br><br>
-	Westley Fuzzerson
-	<br><br>
-	Paolo Fuzzerson
-	<br><br>
-	Adam Fuzzerson
-	<br><br>
-	Lucas Fuzzerson
-	<br><br>
-	Thomas Fuzzerson
-    </p></div>
-	<p style="text-align: center">
-	How to be a top fuzzerson?
-	<br><br>
-	contact us at contact@fuzzerson.com
-	<br><br>
-	and say "FUZZERSON" 20 times in the email with your name.
-	<br><br><br><br>
-	</p>
-	<footer>
-        <p style="font-size: 70%; color: gray">
-            Got questions? Reach out at:
-            <br>contact@fuzzerson.com</br>
-        </p>
-    </footer>
+
+  <div id="pages">
+    <span><a href="index.html">Home</a></span>
+    <span><a href="fuzzy page.html">Fuzzy</a></span>
+    <span><a href="about us page.html">About Us</a></span>
+    <span><a href="https://fuzzerson.github.io/fuzzersonmath2/">Fuzzerson Games</a></span>
+    <span><a href="halloffame.html"><b>Hall of Fame‎</b></a></span>
+  </div>
+
+  <main>
+    <h1>Hall of Fame</h1>
+    <img class="centre" src="Fuzzy.jpg" width="100" height="100" alt="Fuzzy">
+
+    <p id="dealwithit"><b>The Top Fuzzersons</b></p>
+
+    <div class="names-list">
+      Jonnan Fuzzerson<br>
+      Kosta Fuzzerson<br>
+      Zavier Fizzafuzz<br>
+      Eathan Fuzzerson<br>
+      Sara Fuzzerson<br>
+      Dimtri Fuzzerson<br>
+      Fuzzy Fuzzerson<br>
+      Gracie Fuzzerson<br>
+      Maria Fuzzerson<br>
+      Julian Fuzzerson<br>
+      Matthew Fuzzerson<br>
+      Tristan S Fuzzerson<br>
+      Lia Fuzzerson<br>
+      CJ Fuzzerson<br>
+      Luca Fuzzabin<br>
+      Owen<br>
+      Faith Fuzzerson<br>
+      Kaidyn Fuzzerson<br>
+      Nuit Fuzzerson<br>
+      Raisin Bran Fuzzerson<br>
+      Colon Fuzzerson<br>
+      maybe (Semi) Colon Fuzzerson<br>
+      Nathan Fuzzerson<br>
+      Anthony Fuzzerson<br>
+      James Fuzzerson<br>
+      Tyler Fuzzerson (ferguson)<br>
+      Westley Fuzzerson<br>
+      Paolo Fuzzerson<br>
+      Adam Fuzzerson<br>
+      Lucas Fuzzerson<br>
+      Thomas Fuzzerson
+    </div>
+
+    <p style="text-align: center; font-family: Arial; padding-bottom: 50px;">
+      How to be a top fuzzerson?<br><br>
+      contact us at contact@fuzzerson.com<br><br>
+      and say "FUZZERSON" 20 times in the email with your name.
+    </p>
+  </main>
+
+  <footer>
+    Got questions? Reach out at:<br>
+    contact@fuzzerson.com
+  </footer>
+
 </body>
 </html>
