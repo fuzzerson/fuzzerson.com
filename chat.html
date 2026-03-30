@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8" />
+  <title>Fuzzerson Chat</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+
+      background:
+        linear-gradient(rgb(98, 60, 34), rgb(98, 60, 34)) top / 100% 240px no-repeat,
+        rgb(241, 225, 221);
+
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #pages {
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      text-align: right;
+      padding: 20px;
+      background: rgb(98, 60, 34);
+    }
+
+    #pages span {
+      margin-left: 10px;
+    }
+
+    #pages a {
+      color: white;
+      text-decoration: none;
+    }
+
+    #pages a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      padding: 15px;
+      text-align: center;
+    }
+
+    h1 {
+      color: white;
+      margin-top: -20px;
+    }
+
+    #chat-container {
+      max-width: 40vw;
+      margin: 20px auto;
+      text-align: left;
+    }
+
+    .msg {
+      padding: 4px;
+      margin: 2px 0;
+    }
+
+    .name {
+      font-weight: bold;
+    }
+
+    #chat {
+      max-height: 67vh;
+      overflow-y: auto;
+      background: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: rgb(241, 225, 221);
+      border-top: 1px solid #ccc;
+      font-size: 70%;
+      color: gray;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 15px;
+    }
+
+    footer a {
+      color: orange;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="pages">
+    <span><a href="index.html"><b>Home</b></a></span>
+    <span><a href="chat.html">Fuzzerson Chat</a></span>
+    <span><a href="fuzzy page.html">Fuzzy</a></span>
+    <span><a href="about us page.html">About Us</a></span>
+    <span><a href="https://fuzzerson.github.io/fuzzersonmath2/">Fuzzerson Games</a></span>
+    <span><a href="halloffame.html">Hall of Fame‎</a></span>
+  </div>
+
+  <main>
+    <h1>Fuzzerson Chat</h1>
+    <img src="Fuzzy.jpg" width="100" height="100" alt="Fuzzy Icon" />
+
+    <div id="chat-container">
+      <input id="name" placeholder="Username">
+      <input id="msg" placeholder="Message">
+      <button onclick="send()">Send</button>
+
+      <div id="chat"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      Got questions? Reach out at:<br />
+      contact@fuzzerson.com
+    </div>
+    <div style="text-align: right;">
+      Want the original website?<br />
+      <a href="https://sites.google.com/view/fuzzerson/home">click here⠀</a>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCx9Oaf6WTaW84UOAguWGqTn0XBI50V_4Y",
+      authDomain: "fuzzerson-chat.firebaseapp.com",
+      databaseURL: "https://fuzzerson-chat-default-rtdb.firebaseio.com",
+      projectId: "fuzzerson-chat"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    const nameInput = document.getElementById("name");
+    const msgInput = document.getElementById("msg");
+    const chatDiv = document.getElementById("chat");
+
+    nameInput.value = localStorage.getItem("name") || "";
+    nameInput.addEventListener("input", () => {
+      localStorage.setItem("name", nameInput.value);
+    });
+
+    // 🎨 BASIC COLORS ONLY
+    function getColor(str) {
+      const colors = [
+        "red",
+        "green",
+        "yellow",
+        "orange",
+        "blue",
+        "pink",
+        "purple"
+      ];
+
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+      }
+
+      return colors[Math.abs(hash) % colors.length];
+    }
+
+    function send() {
+      const username = nameInput.value.trim();
+      const message = msgInput.value.trim();
+      if (!username || !message) {
+        alert("Enter a name and message!");
+        return;
+      }
+
+      db.ref("messages").push({
+        name: username,
+        msg: message,
+        time: Date.now()
+      });
+
+      msgInput.value = "";
+    }
+
+    db.ref("messages").on("child_added", function(snapshot) {
+      const m = snapshot.val();
+      const div = document.createElement("div");
+      div.className = "msg";
+
+      const color = getColor(m.name);
+      div.innerHTML = `<span class="name" style="color:${color}">${m.name}</span>: ${m.msg}`;
+
+      chatDiv.prepend(div);
+      chatDiv.scrollTop = 0;
+    });
+  </script>
+
+</body>
+</html>
