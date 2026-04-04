@@ -167,33 +167,59 @@
       localStorage.setItem("name", nameInput.value);
     });
 
-    // 🎨 BASIC COLORS ONLY
-    function getColor(str) {
-      const colors = [
-        "red",
-        "green",
-        "yellow",
-        "orange",
-        "blue",
-        "pink",
-        "purple"
-      ];
 
+    function getColor(str) {
+      const colors = ["red","green","yellow","orange","blue","pink","purple"];
       let hash = 0;
       for (let i = 0; i < str.length; i++) {
         hash = str.charCodeAt(i) + ((hash << 5) - hash);
       }
-
       return colors[Math.abs(hash) % colors.length];
     }
 
+
+    const bannedWords = [
+      "fuck","shit","bitch","asshole","bastard","dick",
+      "pussy","cunt","slut","whore","retard",
+      "nigger","faggot","kike","chink"
+    ];
+
+    function normalize(text) {
+      return text
+        .toLowerCase()
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z]/g, "");
+    }
+
+    function censor(text) {
+      let clean = text;
+
+      for (let word of bannedWords) {
+        const normalized = normalize(text);
+
+        if (normalized.includes(word)) {
+          const stars = "*".repeat(word.length);
+          const regex = new RegExp(word.split("").join("[^a-zA-Z]*"), "gi");
+          clean = clean.replace(regex, stars);
+        }
+      }
+
+      return clean;
+    }
+
     function send() {
-      const username = nameInput.value.trim();
-      const message = msgInput.value.trim();
+      let username = nameInput.value.trim();
+      let message = msgInput.value.trim();
+
       if (!username || !message) {
         alert("Enter a name and message!");
         return;
       }
+
+      // ✨ APPLY FILTER
+      username = censor(username);
+      message = censor(message);
 
       db.ref("messages").push({
         name: username,
