@@ -181,7 +181,7 @@ function getColor(str) {
 const bannedWords = [
   "fuck","shit","bitch","asshole","bastard","dick",
   "pussy","cunt","slut","whore","retard",
-  "nigger","faggot","kike","chink","67"
+  "nigger","faggot","kike","chink","67","penis","masturbation","nigga"
 ];
 
 function normalize(text) {
@@ -219,7 +219,6 @@ function send() {
     return;
   }
 
-  // ✅ HARD LIMIT CHECK
   if (message.length > 50) {
     alert("Message must be 50 characters or less!");
     return;
