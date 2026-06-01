@@ -193,38 +193,20 @@ const bannedWords = [
 ];
 
 function normalize(text) {
-  const lookalikes = {
-    "а":"a","ɑ":"a","α":"a","@":"a",
-    "е":"e","ε":"e","€":"e",
-    "і":"i","ї":"i","í":"i","ì":"i","î":"i","ï":"i","1":"i","!":"i","ὶ":"i",
-    "ο":"o","о":"o","0":"o",
-    "ѕ":"s","$":"s","5":"s",
-    "у":"y","γ":"y",
-    "х":"x","×":"x",
-    "с":"c",
-    "р":"p",
-    "к":"k",
-    "м":"m",
-    "н":"h",
-    "в":"b",
-    "т":"t",
-    "ß":"ss",
-    "æ":"ae",
-    "œ":"oe",
-    "ø":"o"
-  };
+  // Convert to lowercase and remove accents
+  let t = text.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
 
-  text = text.toLowerCase();
+  t = t.replace(/[1!|;]/g, "i"); // Treats 1, !, |, and ; as "i"
+  t = t.replace(/[@4]/g, "a");   // Treats @ and 4 as "a"
+  t = t.replace(/[0]/g, "o");    // Treats zero as "o"
+  t = t.replace(/[3]/g, "e");    // Treats 3 as "e"
+  t = t.replace(/[5$]/g, "s");   // Treats 5 and $ as "s"
+  t = t.replace(/[7]/g, "t");    // Treats 7 as "t"
+  t = t.replace(/[8]/g, "b");    // Treats 8 as "b"
+  
+  t = t.replace(/[^a-z0-9]/g, "");
 
-  let result = "";
-  for (const ch of text) {
-    result += lookalikes[ch] || ch;
-  }
-
-  return result
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]/g, "");
+  return t;
 }
 
 function censor(text) {
