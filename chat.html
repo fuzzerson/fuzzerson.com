@@ -193,12 +193,35 @@ const bannedWords = [
 ];
 
 function normalize(text) {
-  return text
-    .toLowerCase()
-    .replace(/ß/g, "ss")
-    .replace(/æ/g, "ae")
-    .replace(/œ/g, "oe")
-    .replace(/ø/g, "o")
+  const lookalikes = {
+    "а":"a","ɑ":"a","α":"a","@":"a",
+    "е":"e","ε":"e","€":"e",
+    "і":"i","ї":"i","í":"i","ì":"i","î":"i","ï":"i","1":"i","!":"i",
+    "ο":"o","о":"o","0":"o",
+    "ѕ":"s","$":"s","5":"s",
+    "у":"y","γ":"y",
+    "х":"x","×":"x",
+    "с":"c",
+    "р":"p",
+    "к":"k",
+    "м":"m",
+    "н":"h",
+    "в":"b",
+    "т":"t",
+    "ß":"ss",
+    "æ":"ae",
+    "œ":"oe",
+    "ø":"o"
+  };
+
+  text = text.toLowerCase();
+
+  let result = "";
+  for (const ch of text) {
+    result += lookalikes[ch] || ch;
+  }
+
+  return result
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]/g, "");
