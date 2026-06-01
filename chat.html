@@ -195,6 +195,10 @@ const bannedWords = [
 function normalize(text) {
   return text
     .toLowerCase()
+    .replace(/ß/g, "ss")
+    .replace(/æ/g, "ae")
+    .replace(/œ/g, "oe")
+    .replace(/ø/g, "o")
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]/g, "");
@@ -244,9 +248,18 @@ function send() {
     return;
   }
 
-  // Fake-send blocked messages
-  if (containsBanned(username) || containsBanned(message)) {
+  // Check username + message together
+  const combined = normalize(username + message);
 
+  let blocked = false;
+  for (let word of bannedWords) {
+    if (combined.includes(word)) {
+      blocked = true;
+      break;
+    }
+  }
+
+  if (blocked) {
     const div = document.createElement("div");
     div.className = "msg";
 
@@ -258,10 +271,9 @@ function send() {
     chatDiv.scrollTop = 0;
 
     msgInput.value = "";
-    return; // Don't send to Firebase
+    return;
   }
 
-  // Real send
   db.ref("messages").push({
     name: username,
     msg: message,
