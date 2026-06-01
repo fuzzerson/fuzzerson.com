@@ -123,8 +123,28 @@
 </div>
 
 <main>
-  <h1>Fuzzerson Chat (Temp Down!)</h1>
+  <h1>Fuzzerson Chat</h1>
+  <img src="Fuzzy.jpg" width="100" height="100" alt="Fuzzy Icon" />
 
+  <div id="chat-container">
+    <input id="name" placeholder="Username" maxlength="20">
+    <input id="msg" placeholder="Message" maxlength="50">
+    <button onclick="send()">Send</button>
+
+    <div id="chat"></div>
+  </div>
+</main>
+
+<footer>
+  <div>
+    Got questions? Reach out at:<br />
+    contact@fuzzerson.com
+  </div>
+  <div style="text-align: right;">
+    Want the original website?<br />
+    <a href="https://sites.google.com/view/fuzzerson/home">click here⠀</a>
+  </div>
+</footer>
 
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
@@ -163,15 +183,13 @@ const bannedWords = [
   "fuck","shit","bitch","asshole","bastard","dick",
   "pussy","cunt","slut","whore","retard",
   "nigger","faggot","kike","chink","67","penis","masturbation","nigga",
-  "balls","testicle","fizzafuzz","sex",
-
+  "balls","testicle","fizzafuzz","sex","men","kids","ditty","diddy",
+  "epstein","epstien","jerk","jew",
 
   "fucker","motherfucker","bullshit","jackass","douche","douchebag",
   "prick","twat","skank","hoe","cum","jizz","semen",
   "cock","cocksucker","tit","tits","boob","boobs",
   "anal","orgasm","porn","porno","hentai",
-
-
 ];
 
 function normalize(text) {
@@ -200,6 +218,18 @@ function censor(text) {
   return clean;
 }
 
+function containsBanned(text) {
+  const normalized = normalize(text);
+
+  for (let word of bannedWords) {
+    if (normalized.includes(word)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 function send() {
   let username = nameInput.value.trim();
   let message = msgInput.value.trim();
@@ -214,9 +244,24 @@ function send() {
     return;
   }
 
-  username = censor(username);
-  message = censor(message);
+  // Fake-send blocked messages
+  if (containsBanned(username) || containsBanned(message)) {
 
+    const div = document.createElement("div");
+    div.className = "msg";
+
+    const color = getColor(username);
+    div.innerHTML =
+      `<span class="name" style="color:${color}">${username}</span>: ${message}`;
+
+    chatDiv.prepend(div);
+    chatDiv.scrollTop = 0;
+
+    msgInput.value = "";
+    return; // Don't send to Firebase
+  }
+
+  // Real send
   db.ref("messages").push({
     name: username,
     msg: message,
@@ -241,3 +286,5 @@ db.ref("messages").on("child_added", function(snapshot) {
 
 </body>
 </html>
+
+
