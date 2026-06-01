@@ -271,18 +271,18 @@ function send() {
     return;
   }
 
-  // Check username + message together
-  const combined = normalize(username + message);
-
-  let blocked = false;
-  for (let word of bannedWords) {
-    if (combined.includes(word)) {
-      blocked = true;
-      break;
-    }
+  // --- NEW ASCII CHECK ---
+  // This regex matches any character that is NOT in the standard ASCII range.
+  const nonAsciiRegex = /[^\x00-\x7F]/;
+  if (nonAsciiRegex.test(username) || nonAsciiRegex.test(message)) {
+    alert("Please use only standard ASCII characters! Emojis and special text are not allowed.");
+    return;
   }
+  // -----------------------
 
-  if (blocked) {
+  // Fake-send blocked messages
+  if (containsBanned(username) || containsBanned(message)) {
+
     const div = document.createElement("div");
     div.className = "msg";
 
@@ -294,9 +294,10 @@ function send() {
     chatDiv.scrollTop = 0;
 
     msgInput.value = "";
-    return;
+    return; // Don't send to Firebase
   }
 
+  // Real send
   db.ref("messages").push({
     name: username,
     msg: message,
