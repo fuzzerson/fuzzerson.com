@@ -263,7 +263,7 @@ function send() {
   // -----------------------
 
   // Fake-send blocked messages
-  if (containsBanned(username) || containsBanned(message)) {
+  if (containsBanned(username + message)) {
 
     const div = document.createElement("div");
     div.className = "msg";
